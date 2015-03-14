@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WcfServiceClientTest.Service1;
 
 namespace WcfServiceClientTest
 {
@@ -10,6 +11,8 @@ namespace WcfServiceClientTest
     {
         static void Main(string[] args)
         {
+            Service1Client c = new Service1Client();
+            c.GetData(1);
         }
     }
 }
