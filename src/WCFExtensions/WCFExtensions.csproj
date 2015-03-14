@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TraceBehaviorExtension.cs" />
+    <Compile Include="TraceEndpointBehaviorExtension.cs" />
+    <Compile Include="TraceEndpointBehavior.cs" />
     <Compile Include="TraceRequestInterceptor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

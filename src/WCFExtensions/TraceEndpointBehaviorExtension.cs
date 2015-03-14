@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace WCFExtensions
 {
-    public class TraceBehaviorExtension : BehaviorExtensionElement
+    public class TraceEndpointBehaviorExtension : BehaviorExtensionElement
     {
         public override Type BehaviorType
         {
             get
             {
-                return typeof(TraceRequestInterceptor);
+                return typeof(TraceEndpointBehavior);
             }
         }
 
         protected override object CreateBehavior()
         {
-            return new TraceRequestInterceptor();
+            return new TraceEndpointBehavior();
         }
     }
 }
