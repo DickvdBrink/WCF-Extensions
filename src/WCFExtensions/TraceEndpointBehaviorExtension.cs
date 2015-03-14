@@ -40,7 +40,7 @@ namespace WCFExtensions
                 }
             }
 
-            return new TraceEndpointBehavior(listener);
+            return new TraceEndpointBehavior(listener ?? new DefaultWcfTracelistener());
         }
     }
 }

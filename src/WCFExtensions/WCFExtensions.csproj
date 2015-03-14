@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DefaultWcfTracelistener.cs" />
     <Compile Include="TraceEndpointBehaviorExtension.cs" />
     <Compile Include="TraceEndpointBehavior.cs" />
     <Compile Include="TraceRequestInterceptor.cs" />

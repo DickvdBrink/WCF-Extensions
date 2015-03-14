@@ -23,12 +23,12 @@ namespace WCFExtensions
 
         public void AfterReceiveReply(ref Message reply, object correlationState)
         {
-            Trace.WriteLine(reply.ToString());
+            this.listener.WriteLine(reply.ToString());
         }
 
         public object BeforeSendRequest(ref Message request, IClientChannel channel)
         {
-            Trace.WriteLine(request.ToString());
+            this.listener.WriteLine(request.ToString());
             return null;
         }
 
@@ -38,13 +38,13 @@ namespace WCFExtensions
 
         public object AfterReceiveRequest(ref Message request, IClientChannel channel, InstanceContext instanceContext)
         {
-            Trace.WriteLine(request.ToString());
+            this.listener.WriteLine(request.ToString());
             return null;
         }
 
         public void BeforeSendReply(ref Message reply, object correlationState)
         {
-            Trace.WriteLine(reply.ToString());
+            this.listener.WriteLine(reply.ToString());
         }
 
         #endregion
