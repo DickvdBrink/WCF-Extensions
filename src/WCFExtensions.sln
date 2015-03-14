@@ -10,6 +10,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceTest", "WcfServiceTest\WcfServiceTest.csproj", "{B8506A87-C5C8-40D8-89BF-954D29AFDF45}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceClientTest", "WcfServiceClientTest\WcfServiceClientTest.csproj", "{FBEECFB2-81D8-4FC3-AC14-B1BCB05B674D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B8506A87-C5C8-40D8-89BF-954D29AFDF45} = {B8506A87-C5C8-40D8-89BF-954D29AFDF45}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
