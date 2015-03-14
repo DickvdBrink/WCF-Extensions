@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
@@ -16,13 +17,13 @@ namespace WCFExtensions
 
         public void AfterReceiveReply(ref Message reply, object correlationState)
         {
-            System.ServiceModel.Description.IEndpointBehavior a;
-            throw new NotImplementedException();
+            Trace.WriteLine(reply.ToString());
         }
 
         public object BeforeSendRequest(ref Message request, IClientChannel channel)
         {
-            throw new NotImplementedException();
+            Trace.WriteLine(request.ToString());
+            return null;
         }
 
         #endregion
@@ -31,12 +32,13 @@ namespace WCFExtensions
 
         public object AfterReceiveRequest(ref Message request, IClientChannel channel, InstanceContext instanceContext)
         {
-            throw new NotImplementedException();
+            Trace.WriteLine(request.ToString());
+            return null;
         }
 
         public void BeforeSendReply(ref Message reply, object correlationState)
         {
-            throw new NotImplementedException();
+            Trace.WriteLine(reply.ToString());
         }
 
         #endregion
