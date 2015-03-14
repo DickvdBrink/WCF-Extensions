@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{175A02EF-8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceTest", "WcfServiceTest\WcfServiceTest.csproj", "{B8506A87-C5C8-40D8-89BF-954D29AFDF45}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceClientTest", "WcfServiceClientTest\WcfServiceClientTest.csproj", "{FBEECFB2-81D8-4FC3-AC14-B1BCB05B674D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,11 +25,16 @@ Global
 		{B8506A87-C5C8-40D8-89BF-954D29AFDF45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8506A87-C5C8-40D8-89BF-954D29AFDF45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8506A87-C5C8-40D8-89BF-954D29AFDF45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBEECFB2-81D8-4FC3-AC14-B1BCB05B674D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBEECFB2-81D8-4FC3-AC14-B1BCB05B674D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBEECFB2-81D8-4FC3-AC14-B1BCB05B674D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBEECFB2-81D8-4FC3-AC14-B1BCB05B674D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B8506A87-C5C8-40D8-89BF-954D29AFDF45} = {175A02EF-8343-4349-9961-90D5EF778D98}
+		{FBEECFB2-81D8-4FC3-AC14-B1BCB05B674D} = {175A02EF-8343-4349-9961-90D5EF778D98}
 	EndGlobalSection
 EndGlobal
