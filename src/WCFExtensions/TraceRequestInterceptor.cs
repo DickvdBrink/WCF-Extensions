@@ -12,6 +12,12 @@ namespace WCFExtensions
 {
     public class TraceRequestInterceptor : IClientMessageInspector, IDispatchMessageInspector
     {
+        private TraceListener listener;
+
+        public TraceRequestInterceptor(TraceListener listener)
+        {
+            this.listener = listener;
+        }
 
         #region IClientMessageInspector
 
