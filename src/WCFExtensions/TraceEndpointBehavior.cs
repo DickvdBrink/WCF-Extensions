@@ -22,6 +22,8 @@ namespace WCFExtensions
 
         public void ApplyClientBehavior(ServiceEndpoint endpoint, ClientRuntime clientRuntime)
         {
+            TraceRequestInterceptor inspector = new TraceRequestInterceptor();
+            clientRuntime.MessageInspectors.Add(inspector);
         }
 
         public void ApplyDispatchBehavior(ServiceEndpoint endpoint, EndpointDispatcher endpointDispatcher)
