@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>WCF-Extensions</id>
+        <version>1.0.0</version>
+        <title>WCF-Extensions</title>
+        <authors>Dick van den Brink</authors>
+        <projectUrl>https://github.com/DickvdBrink/WCF-Extensions/</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>WCF-Extensions library</description>
+        <language>en-US</language>
+        <tags>wcf</tags>
+    </metadata>
+    <files>
+        <file src="bin\Release\*.dll" target="lib" />
+    </files>
+</package>
