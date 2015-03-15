@@ -12,6 +12,12 @@ namespace WCFExtensions
 {
     public class TraceRequestInterceptor : IClientMessageInspector, IDispatchMessageInspector
     {
+        private const string DEFAULT_CLIENT_SEND_FORMAT = "{0} Request to: {1}\r\nAction: {2}\r\nBody: {3}";
+        private const string DEFAULT_CLIENT_RECIEVE_FORMAT = "{0} Reply from: {1}\r\nAction: {2}\r\nBody: {3}";
+
+        private const string DEFAULT_SERVER_SEND_FORMAT = "{0} Reply to: {1}\r\nAction: {2}\r\nBody: {3}";
+        private const string DEFAULT_SERVER_RECIEVE_FORMAT = "{0} Request from: {1}\r\nAction: {2}\r\nBody: {3}";
+
         private TraceListener listener;
 
         public TraceRequestInterceptor(TraceListener listener)
@@ -23,13 +29,18 @@ namespace WCFExtensions
 
         public void AfterReceiveReply(ref Message reply, object correlationState)
         {
-            this.listener.WriteLine(reply.ToString());
+            State s = correlationState as State;
+            string log = string.Format(DEFAULT_CLIENT_RECIEVE_FORMAT, DateTime.Now, s.RemoteAddress, s.Action, reply.ToString());
+            this.listener.WriteLine(log);
         }
 
         public object BeforeSendRequest(ref Message request, IClientChannel channel)
         {
-            this.listener.WriteLine(request.ToString());
-            return null;
+            string action = request.Headers.Action;
+            Uri remoteUri = channel.RemoteAddress.Uri;
+            string log = string.Format(DEFAULT_CLIENT_SEND_FORMAT, DateTime.Now, remoteUri, action, request.ToString());
+            this.listener.WriteLine(log.ToString());
+            return new State { RemoteAddress = remoteUri.ToString(), Action = action };
         }
 
         #endregion
@@ -38,15 +49,27 @@ namespace WCFExtensions
 
         public object AfterReceiveRequest(ref Message request, IClientChannel channel, InstanceContext instanceContext)
         {
-            this.listener.WriteLine(request.ToString());
-            return null;
+            string action = request.Headers.Action;
+            RemoteEndpointMessageProperty RE = (RemoteEndpointMessageProperty)request.Properties[RemoteEndpointMessageProperty.Name];
+            string remoteUri = RE.Address;
+            string log = string.Format(DEFAULT_SERVER_RECIEVE_FORMAT, DateTime.Now, remoteUri, action, request.ToString());
+            this.listener.WriteLine(log);
+            return new State { RemoteAddress = remoteUri, Action = action };
         }
 
         public void BeforeSendReply(ref Message reply, object correlationState)
         {
-            this.listener.WriteLine(reply.ToString());
+            State s = correlationState as State;
+            string log = string.Format(DEFAULT_SERVER_SEND_FORMAT, DateTime.Now, s.RemoteAddress, s.Action, reply.ToString());
+            this.listener.WriteLine(log);
         }
 
         #endregion
+
+        private class State
+        {
+            public string RemoteAddress;
+            public string Action;
+        }
     }
 }
