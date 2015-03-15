@@ -32,11 +32,32 @@ You can see a full sample `app.config` configuration [here](sample-configuration
 
 **TODO**: provide a minimal web.config sample.
 
-With this default configuration it will log to the [DefaultTraceListener](https://msdn.microsoft.com/en-us/library/system.diagnostics.defaulttracelistener(v=vs.110).aspx). You can check the output by using [DebugView](https://technet.microsoft.com/en-us/library/bb896647.aspx). More information is available [here](http://dickvdbrink.github.io/c%23/2015/01/09/CSharp-Logging-using-Trace-and-DebugView.html). For more configuration options read the TraceListeners section below.
+With this default configuration it will log to the [DefaultTraceListener](https://msdn.microsoft.com/en-us/library/system.diagnostics.defaulttracelistener(v=vs.110).aspx). You can check the output by using [DebugView](https://technet.microsoft.com/en-us/library/bb896647.aspx). More information is available [here](http://dickvdbrink.github.io/c%23/2015/01/09/CSharp-Logging-using-Trace-and-DebugView.html).
+
+For more configuration options read the TraceListeners section below.
 
 ### TraceListeners
 
-TODO: Info about tracelisteners
+TraceListeners provide a way to log to a different output without changing the code. The default TraceListener writes to [OutputDebugString](https://msdn.microsoft.com/en-us/library/windows/desktop/aa363362(v=vs.85).aspx) which you can capture with DebugView.
+
+The configuration below writes to a file called `output.log`. Notice the tracelistener parameter for the logbehavior.
+
+    <system.diagnostics>
+      <trace autoflush="false">
+        <listeners>
+          <add name="log" type="System.Diagnostics.TextWriterTraceListener" initializeData="output.log" />
+        </listeners>
+      </trace>
+    </system.diagnostics>
+     <behaviors>
+      <endpointBehaviors>
+        <behavior>
+          <logBehavior tracelistener="log"/>
+        </behavior>
+      </endpointBehaviors>
+    </behaviors>
+
+There are different types of TraceListener and if you want you can create your own. More documentation is available [here](https://msdn.microsoft.com/en-us/library/system.diagnostics.tracelistener(v=vs.110).aspx).
 
 ## Building from source
 
